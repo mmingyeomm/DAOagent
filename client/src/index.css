@@ -56,6 +56,7 @@
     animation: glitch-overlay 0.2s infinite;
 }
 
+
 @keyframes glitch-overlay {
     0% {
         opacity: 0.05;

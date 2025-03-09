@@ -152,7 +152,7 @@ export function NavigationBar() {
                     <span className="font-mono text-xs uppercase">About Lucy</span>
                 </NavLink>
                 
-                {/* External Docs Link */}
+                {/* External Docs Link
                 <NavLink
                     to="https://elizaos.github.io/eliza/docs/intro/"
                     target="_blank"
@@ -161,7 +161,8 @@ export function NavigationBar() {
                     <FileCode className="size-4 text-primary" />
                     <span className="font-mono text-xs uppercase">API Docs</span>
                 </NavLink>
-                
+                 */}
+
                 {/* Connection Status */}
                 <ConnectionStatus />
             </div>

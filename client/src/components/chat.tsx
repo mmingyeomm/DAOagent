@@ -123,6 +123,9 @@ export default function Page({ agentId }: { agentId: UUID }) {
         }
     }, []);
 
+    // Store last Lucy message that contains a smart contract
+    const [lastContractMessage, setLastContractMessage] = useState<string | null>(null);
+    
     const sendMessageMutation = useMutation({
         mutationKey: ["send_message", agentId],
         mutationFn: async ({
@@ -139,10 +142,19 @@ export default function Page({ agentId }: { agentId: UUID }) {
             console.log(response[0].text);
 
             const responseText = response[0].text;
+            // Check if Lucy's message starts with "Phase 3:"
             const firstTwoWords = responseText.trim().split(/\s+/).slice(0, 2).join(" ");
-            if (firstTwoWords === "Phase 3:") {
-                console.log("Detected Phase 3 response, initiating contract deployment...");
-
+            
+            // If Lucy's response starts with "Phase 3:" and contains rust code, save it
+            if (firstTwoWords === "Phase 3:" && responseText.includes("rust") && responseText.includes("end contract")) {
+                console.log("Storing Lucy's contract message for future deployment");
+                setLastContractMessage(responseText);
+            }
+            
+            // If user's message starts with "Deploy" and we have a stored contract message
+            if (message.toLowerCase().startsWith("deploy") && lastContractMessage) {
+                console.log("Detected Deploy request with previously stored contract, initiating deployment...");
+                
                 // Add a deployment message
                 response.push({
                     text: "Deployment in progress...",
@@ -151,8 +163,8 @@ export default function Page({ agentId }: { agentId: UUID }) {
                     source: "System"
                 });
 
-                // Start the deployment process
-                deployContract(responseText).then(deploymentResult => {
+                // Start the deployment process with the stored contract message
+                deployContract(lastContractMessage).then(deploymentResult => {
                     console.log("Deployment process completed:", deploymentResult);
                     
                     // Add the deployment result as a new message

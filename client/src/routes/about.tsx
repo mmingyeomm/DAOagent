@@ -52,11 +52,11 @@ export default function AboutRoute() {
                         </div>
                         
                         <div className="flex flex-wrap justify-center gap-4">
-                            <Button variant="outline" className="gap-2">
+                            <Button variant="outline" className="gap-2" onClick={() => window.open('https://github.com/mmingyeomm/DAOagent')}>
                                 <Github className="h-4 w-4" />
                                 View on GitHub
                             </Button>
-                            <Button className="gap-2">
+                            <Button className="gap-2" onClick={() => window.open('https://t.me/+iAps93_b4485YmM1')} >
                                 <Users className="h-4 w-4" />
                                 Join Community
                             </Button>

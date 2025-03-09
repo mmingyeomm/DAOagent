@@ -17,7 +17,7 @@ export default function ContractsRoute() {
                     id: "contract-1",
                     name: "LucyDAO Governance",
                     address: "0x8c1eD7e19abAa9f23c476dA86Dc1577F1Ef401f8",
-                    network: "Solana Mainnet",
+                    network: "Solana Devnet",
                     deployDate: "2025-02-15",
                     status: "Active",
                     interactions: 243
@@ -26,7 +26,7 @@ export default function ContractsRoute() {
                     id: "contract-2",
                     name: "Neural Network Bridge",
                     address: "0x2F9BeBbE6AeF1C8cA02c9e85619924D47e97bF69",
-                    network: "Solana Testnet",
+                    network: "Solana Devnet",
                     deployDate: "2025-03-01",
                     status: "Testing",
                     interactions: 56
@@ -35,7 +35,7 @@ export default function ContractsRoute() {
                     id: "contract-3",
                     name: "LucyAI Storage",
                     address: "0xE32d51C3142257F3F2b43f128Db89c8134afC901",
-                    network: "Solana Mainnet",
+                    network: "Solana Devnet",
                     deployDate: "2025-02-28",
                     status: "Active",
                     interactions: 189
